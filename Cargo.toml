@@ -1,0 +1,10 @@
+[package]
+name = "gamma-chess"
+version = "0.0.0"
+license = "MIT"
+license-file = "LICENSE"
+edition = "2021"
+
+[dependencies]
+
+macroquad = "0.3.25"
