@@ -1,4 +1,5 @@
+pub mod bit_manip;
 pub mod bitboard;
 pub mod color;
 pub mod game;
-pub mod util;
+pub mod magic_bitboard_gen;

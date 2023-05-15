@@ -3,6 +3,7 @@ use std::{env, path};
 use ggez::{event, ContextBuilder};
 use gui::gui::Game;
 
+pub mod chess;
 pub mod gui;
 pub mod piece;
 
