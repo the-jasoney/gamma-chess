@@ -1,29 +1,21 @@
-use std::{env, path};
-
-use ggez::{event, ContextBuilder};
-use gui::gui::Game;
+use clap::{arg, command};
 
 pub mod chess;
-pub mod gui;
 pub mod piece;
+pub mod ui;
 
 fn main() {
-    let mut cb = ContextBuilder::new("", "Cool Game Author");
+    let matches = command!()
+        .arg(
+            arg!(--uci)
+                .action(clap::ArgAction::SetTrue)
+                .help("Launch with no GUI, interacting solely via UCI."),
+        )
+        .get_matches();
 
-    if let Ok(manifest_dir) = env::var("CARGO_MANIFEST_DIR") {
-        let mut path = path::PathBuf::from(manifest_dir);
-        path.push("resources");
-        cb = cb.add_resource_path(path);
+    if matches.get_flag("uci") {
+        todo!()
+    } else {
+        todo!()
     }
-
-    // Make a Context.
-    let (mut ctx, event_loop) = cb.build().expect("Could not create ggez context");
-
-    // Create an instance of your event handler.
-    // Usually, you should provide it with the Context object to
-    // use when setting your game up.
-    let my_game = Game::new(&mut ctx);
-
-    // Run!
-    event::run(ctx, event_loop, my_game);
 }
